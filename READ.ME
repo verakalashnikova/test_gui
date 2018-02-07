@@ -1,0 +1,67 @@
+# Automated GUI-test for Spotify client
+Implemented on maven, java, sikuli.
+
+Tests do the following:
+1. Verify that the login process using a valid open/free account works.
+2. Verify that the login process using an invalid open/free account fails.
+3. Verify search scenarios by:
+	* an artist
+	* a song 
+	* an album.
+4. Verify that playing tracks works by:
+	* clicking on searched top result
+	* play button and move playing indicator forward and backward work
+	* playing the next track works 
+5. Verify that additing tracks to Your Library works.
+
+## Getting Started
+
+## Prerequisites
+1. Spotify GUI client should in downloaded and installed.
+2. Spotify backend should be always online.
+3. Tests should be run on Mac platform. 
+If you're going to run them against Windows you need to do:
+	* change APP_PATH variable in BaseTestCase class
+	* change Key for cleanTextField method in BaseScreen class
+
+# Running the tests
+	* Switch to a repository's directory
+	* To run all tests suites: mvn test
+	* To run Login tests: mvn test -Dtest=LoginTest
+	* To run Search tests: mvn test -Dtest=SearchTest
+	* To verify playing tracks: mvn test -Dtest=PlayTest
+	* To run Additing song to Your Library: mvn test -Dtest=YourLibrarySongsTest
+
+# Tests description:
+
+## Test Data:
+Created Test Data object and parametrized it for each Test.
+
+## Login Test:
+* Test opens Spotify app, enters login and password for valid user and verifies that Profile icon is displayed in the Main Screen. Closes Spotify app.
+* Test opens Spotify app, enters invalid login and password and verifies that Error message is displayed. Closes Spotify app.
+
+## Search Test:
+* Verifies seach by Artist and compare image under Top Result with the prepared image from Test Data object. 
+* Verifies seach by Song and compare image under Top Result with the prepared image from Test Data object.
+* Verifies seach by Album and compare image under Top Result with the prepared image from Test Data object.
+* Verifies seach by incorrect value and compare it with expected Error mesage.
+
+## Playing tracks Test:
+* Verifies correct playing tracks after searching a song and click on an image under Top Results.  
+* Verifies correct playing tracks by clicking Play button and moving track playing indicator.
+* Verifies correct playing tracks clicking Play button and click Next track button.
+
+## Adding Songs to Your Library Test.
+I added the test because I think next most important functionality on top of tests which were already implemented.
+ 
+TODO:
+- Verify that songs from My Library can be played.
+
+# Built With
+	* Java
+	* Sikuli
+	* Maven
+
+# Author
+Vera Kalashnikova
